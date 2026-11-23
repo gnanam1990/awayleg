@@ -138,7 +138,10 @@ export function createApi({ dbPath = ':memory:', artifactDir, sourceFactory }) {
         if (found.corrupt || !found.bytes) {
           return json(res, 409, { error: 'artifact missing or corrupt', kind: found.kind });
         }
-        res.writeHead(200, { 'content-type': 'application/octet-stream' });
+        res.writeHead(200, {
+          'content-type': 'application/octet-stream',
+          'access-control-allow-origin': '*',
+        });
         return res.end(found.bytes);
       }
 

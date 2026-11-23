@@ -6,7 +6,8 @@
 // (replayHash, homeDelivered, homeTurns, awayDelivered, awayTurns);
 // equality is exact across all five fields.
 
-import { CanonicalError, isSafeInt, sha256Hex } from './canonical.js';
+import { CanonicalError, isSafeInt } from './canonical.js';
+import { sha256Hex } from './sha256.js';
 import { assertPermutation } from './engine.js';
 import { CELL_COUNT, PARCEL_COUNT, RULES_VERSION } from './course.js';
 

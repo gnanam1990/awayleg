@@ -3,8 +3,6 @@
 // arrays only: ASCII decimal integer literals, no whitespace, no BOM, no
 // trailing LF. Decoding requires byte-for-byte re-encoding round trip.
 
-import { createHash } from 'node:crypto';
-
 export class CanonicalError extends Error {
   constructor(message) {
     super(message);
@@ -42,11 +40,11 @@ export function validateIntArrays(value, label = 'payload') {
   return value;
 }
 
-// Validated arrays -> canonical UTF-8 bytes (Buffer).
+// Validated arrays -> canonical UTF-8 bytes (Uint8Array; Buffer on Node).
 export function encodeCanonical(value, label = 'payload') {
   validateIntArrays(value, label);
   const text = JSON.stringify(value);
-  return Buffer.from(text, 'utf8');
+  return typeof Buffer !== 'undefined' ? Buffer.from(text, 'utf8') : new TextEncoder().encode(text);
 }
 
 export function canonicalText(value, label = 'payload') {
@@ -57,12 +55,12 @@ export function canonicalText(value, label = 'payload') {
 // Decode wire bytes; enforces the exact canonical form (no whitespace,
 // no BOM, arrays of nonneg safe ints, ASCII decimal literals only).
 export function decodeCanonical(bytes, label = 'payload', maxBytes = 64 * 1024) {
-  const buf = Buffer.isBuffer(bytes) ? bytes : Buffer.from(bytes);
+  const buf = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
   if (buf.length === 0) throw new CanonicalError(`${label}: empty input`);
   if (buf.length > maxBytes) {
     throw new CanonicalError(`${label}: exceeds ${maxBytes} bytes (${buf.length})`);
   }
-  const text = buf.toString('utf8');
+  const text = new TextDecoder('utf-8', { ignoreBOM: true }).decode(buf);
   if (text.charCodeAt(0) === 0xfeff) {
     throw new CanonicalError(`${label}: BOM not allowed`);
   }
@@ -83,6 +81,4 @@ export function decodeCanonical(bytes, label = 'payload', maxBytes = 64 * 1024) 
   return parsed;
 }
 
-export function sha256Hex(bytes) {
-  return `0x${createHash('sha256').update(bytes).digest('hex')}`;
-}
+
