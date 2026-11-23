@@ -1,0 +1,20 @@
+{
+  "recordKind": "EXECUTION_EVIDENCE",
+  "module": "M02",
+  "status": "RUN_LOCAL_PASS",
+  "headSha": null,
+  "commands": ["forge test (contracts)"],
+  "exitCodes": [0],
+  "testCounts": { "pass": 26, "fail": 0 },
+  "toolchain": "forge 1.10.0, solc 0.8.24, evm cancun, forge-std v1.17.0 (vendored f3dae6e)",
+  "evidence": [
+    "T-004: holder/non-holder/wrong-entrant/reused-slot/bad-permutation/failed-registry-read all verified; entry at exactly entryClose reverts",
+    "T-005: scheduleKey retry reconciliation recovers id; equal tuples accept once; hash/score mismatches dispute; early/late/dup attestations denied; range-bound tuples enforced; uncreated id rejected on all writes; captains are season-bound",
+    "T-006: missing lock blocks attestation; permissionless expiry finalizes once; no points on expiry"
+  ],
+  "redEvidence": "spec gap found: lockStrategy order check must run after holder check order chosen deliberately — holder gate first so non-holders get NotHolder",
+  "greenEvidence": "26/26 pass",
+  "externalActions": [],
+  "handoff": "contract emits FixtureCreated/StrategyLocked/Attested/Accepted/Disputed/Expired for the indexer",
+  "openGates": ["T-007 real-wallet evidence — requires separate authorization and a consenting holder", "BSC deployment — not authorized"]
+}
