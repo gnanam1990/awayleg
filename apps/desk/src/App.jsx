@@ -10,7 +10,8 @@ import {
   reportDifference,
 } from './desk.js';
 
-const API = import.meta.env.VITE_INDEXER_URL ?? 'http://localhost:3000';
+const API = import.meta.env.VITE_INDEXER_URL
+  ?? (location.port === '5173' || location.port === '5174' ? 'http://localhost:3000' : '');
 
 function Cell({ x, y, course, homePath, awayPath }) {
   const cell = y * 6 + x;
