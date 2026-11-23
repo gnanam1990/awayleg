@@ -165,6 +165,51 @@ export const SEASON_ABI = [
     inputs: [],
     outputs: [{ name: '', type: 'address' }],
   },
+  {
+    type: 'function',
+    name: 'createFixture',
+    stateMutability: 'nonpayable',
+    inputs: [
+      { name: 'scheduleKey', type: 'bytes32' },
+      { name: 'home', type: 'address' },
+      { name: 'away', type: 'address' },
+      { name: 'courseHash', type: 'bytes32' },
+      { name: 'entryClose', type: 'uint64' },
+      { name: 'attestClose', type: 'uint64' },
+    ],
+    outputs: [{ name: 'id', type: 'uint64' }],
+  },
+  {
+    type: 'function',
+    name: 'lockStrategy',
+    stateMutability: 'nonpayable',
+    inputs: [
+      { name: 'id', type: 'uint64' },
+      { name: 'order', type: 'uint8[5]' },
+    ],
+    outputs: [],
+  },
+  {
+    type: 'function',
+    name: 'attest',
+    stateMutability: 'nonpayable',
+    inputs: [
+      { name: 'id', type: 'uint64' },
+      { name: 'replayHash', type: 'bytes32' },
+      { name: 'homeDelivered', type: 'uint8' },
+      { name: 'homeTurns', type: 'uint8' },
+      { name: 'awayDelivered', type: 'uint8' },
+      { name: 'awayTurns', type: 'uint8' },
+    ],
+    outputs: [],
+  },
+  {
+    type: 'function',
+    name: 'expire',
+    stateMutability: 'nonpayable',
+    inputs: [{ name: 'id', type: 'uint64' }],
+    outputs: [],
+  },
 ];
 
 const EVENT_NAMES = new Set(
