@@ -12,7 +12,7 @@ proven and which gates remain unmet.
 | Registry on BSC testnet (chain 97) | NOT DEPLOYED — `eth_getCode` returns `0x`; testnet rehearsal needs a local TestRegistry stand-in | data-seed-prebsc RPCs |
 | Operator powers | PASS — `AwayLegSeason` is non-upgradeable; constructor freezes organizer, registry, captains; `createFixture` is organizer-only; no admin can finalize/delete/reset or pick a winner; disputed/expired fixtures are permanently unscored | `contracts/src/AwayLegSeason.sol` |
 | Confirmed wallet receipts | PASS (local) — T-007: fresh holder wallets funded, attest rejected pre-window (`AttestWindow 0xb88b9dc5`), retried in-window, two confirmed receipts → Accepted HomeWin | `evidence/T-007-client.json` |
-| Public URL logged out | PARTIAL — desk renders full read-only state with no auth against the seeded indexer; not yet a public deployment | desk on :5174 + indexer :3000 |
+| Public URL logged out | PASS (org-scoped) — desk deployed as Devin App at https://awayleg-desk--rqmhkakr.preview.devinapps.com; renders fixtures/standings/board with no wallet or auth prompt; truly world-public hosting still unmet | `evidence/desk-server.mjs` + deployed App |
 | Receipts and video links | LOCAL — tx receipts in `evidence/T-007-client.json` + pilot run; desk walkthrough recorded (testing session recording in session artifacts) | this repo + session artifacts |
 
 ## Met gates
@@ -34,7 +34,7 @@ proven and which gates remain unmet.
    operated referee machines on the live deployment.
 3. **Verified source on BscScan** — needs the deployed address + verification
    (requires an API key or manual submission once deployed).
-4. **Public desk URL** — desk is local-only; hosting is unapproved.
+4. ~~**Public desk URL**~~ — resolved: org-visible Devin App URL above. World-public hosting (for external judges) remains unmet.
 5. **Hackathon form** — never submitted; the live form's required fields were
    not opened (DEMO-AND-SUBMISSION.md says to use the live form for exact fields).
 
