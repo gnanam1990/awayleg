@@ -1,0 +1,20 @@
+{
+  "recordKind": "EXECUTION_EVIDENCE",
+  "module": "M03",
+  "status": "RUN_LOCAL_PASS",
+  "headSha": null,
+  "commands": ["node --test test/*.test.js (services/indexer)"],
+  "exitCodes": [0],
+  "testCounts": { "pass": 13, "fail": 0 },
+  "runtime": "node v22.21.1, node:sqlite WAL",
+  "evidence": [
+    "T-008: out-of-order + duplicate log delivery deduped and sorted; mid-sync crash (rollback before cursor commit) resumes to identical standings as clean rescan; reopen+resync equals clean rescan; bounded ranges commit atomically",
+    "T-009: checkpoint hash replacement detected -> stale flag, backtrack to common ancestor block 3, orphaned events preserved outside scoring, fixture reset to Open, points removed, resume on verified ancestor re-accepts",
+    "T-010: oversized/empty/malformed artifacts rejected, digest enforced at ingress, same-hash dedup, lost blob restored from club bundle, wrong bytes rejected"
+  ],
+  "redEvidence": "first run: JSON.stringify(BigInt) crash on raw event args (fixed by storing normalized fields); deterministic fork hashes needed fork salt",
+  "greenEvidence": "13/13 pass",
+  "externalActions": [],
+  "handoff": "API exposes /api/status,/api/deployments,/api/sync,/api/fixtures,/api/standings,/api/artifacts; ViemSource binds real RPC with finalized tag",
+  "openGates": ["T-011 two-machine CLI install (needs M04 + real network path)", "live RPC smoke against anvil (covered in M06 rehearsal)"]
+}
