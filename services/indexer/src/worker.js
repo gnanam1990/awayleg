@@ -3,7 +3,7 @@
 // one transaction, dedupes overlap, sorts by block/tx/log order, and pauses
 // publishing on checkpoint divergence until a verified ancestor resumes it.
 
-import { decodeLog } from './abi.js';
+import { decodeLog } from '@awayleg/chain';
 import { backtrackTo, commitBatch, markStale } from './project.js';
 import { getCursor } from './db.js';
 

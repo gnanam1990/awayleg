@@ -7,7 +7,7 @@
 // ViemSource binds a real RPC; FakeChain drives tests with a mutable chain.
 
 import { createPublicClient, http } from 'viem';
-import { decodeLog } from './abi.js';
+import { decodeLog } from '@awayleg/chain';
 
 export class ViemSource {
   constructor(rpcUrl, expectedChainId) {
@@ -120,7 +120,7 @@ export class FakeChain {
 // Encode a contract event into raw log form for FakeChain (topics + data).
 // Uses viem's encoder so fake logs exercise the real decoder.
 import { encodeEventTopics, encodeAbiParameters, parseAbiItem } from 'viem';
-import { SEASON_ABI } from './abi.js';
+import { SEASON_ABI } from '@awayleg/chain';
 
 export function fakeLog(address, eventName, args) {
   const eventDef = SEASON_ABI.find((i) => i.type === 'event' && i.name === eventName);

@@ -1,0 +1,21 @@
+{
+  "recordKind": "EXECUTION_EVIDENCE",
+  "module": "M04",
+  "status": "RUN_LOCAL_PASS",
+  "headSha": null,
+  "commands": ["node --test test/*.test.js (packages/referee)", "awayleg replay verify --bundle <dir> (from unrelated cwd)", "awayleg diff --a <b> --b <b>"],
+  "exitCodes": [0],
+  "testCounts": { "pass": 11, "fail": 0 },
+  "runtime": "node v22.21.1",
+  "evidence": [
+    "T-011: installed bin runs from unrelated cwd; offline verify recomputes identical canonical bytes + tuple (replayHash 0x5bc5...e5ac)",
+    "T-012: first differing frame turn reported; missing trace reports MISSING without inventing a turn; equal digest unequal scores names differing fields",
+    "T-013: swapped contract/fixture/course each rejected precisely; unsupported schema and oversized members rejected; online binding rejects mismatching canonical block and accepts matching block + locked orders",
+    "attest intent previews decoded calldata for local wallet review"
+  ],
+  "redEvidence": "canonicalText validator is int-arrays-only; replay bytes need JSON.stringify(replayArray) — fixed",
+  "greenEvidence": "11/11 pass",
+  "externalActions": [],
+  "handoff": "M05 desk reads indexer API; referee bundles verify independently",
+  "openGates": ["referee run against live anvil RPC (M06 rehearsal)", "captain wallet signature — gated"]
+}

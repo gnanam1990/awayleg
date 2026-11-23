@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@awayleg/rules": "*",
+    "@awayleg/chain": "*",
     "viem": "^2.0.0"
   },
   "license": "MIT"
