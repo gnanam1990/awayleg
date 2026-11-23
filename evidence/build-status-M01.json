@@ -1,0 +1,23 @@
+{
+  "recordKind": "EXECUTION_EVIDENCE",
+  "module": "M01",
+  "status": "RUN_LOCAL_PASS",
+  "headSha": null,
+  "commands": [
+    "node --test test/*.test.js (packages/rules)"
+  ],
+  "exitCodes": [0],
+  "testCounts": { "pass": 24, "fail": 0 },
+  "runtime": "node v22.21.1",
+  "evidence": [
+    "corridor courseSha256 reproduced: 0x3de7c3c6dfc61070fbaa0fc30ef3bbd01741ccb7a31492fa72bcf9ad9cbb5c95",
+    "corridor replaySha256 reproduced: 0x5bc5556fe729bd9809d6e2b772870009b11441e5c7a50bc5295d4640ce53e5ac",
+    "attestation tuple reproduced: [0x5bc5...e5ac, 5, 5, 5, 9] -> HOME_WIN",
+    "frames match vector for both orders; BFS order down/right/up/left verified"
+  ],
+  "redEvidence": "first failing run: -0 accepted as safe int (fixed in isSafeInt)",
+  "greenEvidence": "24/24 pass",
+  "externalActions": [],
+  "handoff": "M02 can rely on @awayleg/rules canonical bytes, replayHash, attestationTuple",
+  "openGates": ["browser-runtime comparison of the same vector (T-001 second runtime)"]
+}

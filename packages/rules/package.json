@@ -1,0 +1,14 @@
+{
+  "name": "@awayleg/rules",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "AwayLeg rules v1: canonical course bytes, deterministic BFS runner, replay identity and scoring",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "license": "MIT"
+}
