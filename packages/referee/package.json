@@ -1,0 +1,18 @@
+{
+  "name": "@awayleg/referee",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "awayleg CLI — independent club referee: replay run, bundle verify, difference inspection, attest intent preview",
+  "bin": {
+    "awayleg": "./bin/awayleg.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@awayleg/chain": "*",
+    "@awayleg/rules": "*",
+    "viem": "^2.0.0"
+  },
+  "license": "MIT"
+}

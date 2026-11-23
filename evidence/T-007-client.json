@@ -1,0 +1,56 @@
+{
+  "deployment": "local anvil (chain 31337)",
+  "steps": [
+    {
+      "season_deployed": {
+        "address": "0x998abeb3e57409262ae5b751f60747921b33613e",
+        "tx": "0x7d82e84e3ba9a16c4510df6d66d8f9a0c2c74354daa044895925df81c18c005a",
+        "homeCaptain": "0x1500873a9446eD3ceD7AA701f21dcA74a7FEEd06",
+        "awayCaptain": "0xdB99d6ba46C4FE6E30d77d4EF3685847dEbac5db"
+      }
+    },
+    {
+      "holders_funded": {
+        "home": "0x1500873a9446eD3ceD7AA701f21dcA74a7FEEd06",
+        "away": "0xdB99d6ba46C4FE6E30d77d4EF3685847dEbac5db"
+      }
+    },
+    {
+      "fixture_created": {
+        "id": "1",
+        "scheduleKey": "0x743030372d66782d316132303736376462633830303030303030303030303030"
+      }
+    },
+    {
+      "orders_locked": {
+        "fixture": "1"
+      }
+    },
+    {
+      "local_preview_redacted": {
+        "to": "0x998abeb3e57409262ae5b751f60747921b33613e",
+        "value": "0",
+        "data": "0x7e23e4850000000000000000000000000000000000000000000000000000000000000001dd5c3ee0a786c4634856a25181da6c41d2a439a5a933c4d9c122cd89171b4d510000000000000000000000000000000000000000000000000000000000000005000000000000000000000000000000000000000000000000000000000000000500000000000000000000000000000000000000000000000000000000000000050000000000000000000000000000000000000000000000000000000000000009",
+        "description": "attest fixture 1 replay=0xdd5c3ee0… scores 5/5 vs 5/9"
+      }
+    },
+    {
+      "rejected_before_window": "reverted AttestWindow (0xb88b9dc5)"
+    },
+    {
+      "attest_confirmed_receipt": {
+        "caller": "0xdB99d6ba46C4FE6E30d77d4EF3685847dEbac5db",
+        "tx": "0x205a0e79d432bfc3971cd61bd4b98c2539a0e6deb2c354c904b2d67d3bec920e",
+        "block": "17969"
+      }
+    },
+    {
+      "second_attest_accepted": {
+        "caller": "0x1500873a9446eD3ceD7AA701f21dcA74a7FEEd06",
+        "tx": "0xee70fe0c3890911c121aefd0cba70960f0c91a003a0fbd334379fc6bbfd20c07",
+        "state": 1,
+        "outcome": 1
+      }
+    }
+  ]
+}

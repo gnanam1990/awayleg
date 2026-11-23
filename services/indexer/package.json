@@ -1,0 +1,20 @@
+{
+  "name": "@awayleg/indexer",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "AwayLeg finalized-log indexer: SQLite projections, artifact store, standings API",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "@awayleg/rules": "*",
+    "@awayleg/chain": "*",
+    "viem": "^2.0.0"
+  },
+  "license": "MIT"
+}

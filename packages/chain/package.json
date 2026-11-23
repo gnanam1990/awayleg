@@ -1,0 +1,14 @@
+{
+  "name": "@awayleg/chain",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "AwayLeg chain bindings: Season ABI, log decoding, finalized fixture reads, calldata intents",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "dependencies": {
+    "viem": "^2.0.0"
+  },
+  "license": "MIT"
+}

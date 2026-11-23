@@ -1,0 +1,40 @@
+{
+  "recordKind": "EXECUTION_EVIDENCE",
+  "module": "M06",
+  "status": "RUN_LOCAL_PASS",
+  "headSha": null,
+  "commands": [
+    "anvil --chain-id 31337",
+    "forge create TestRegistry / AwayLegSeason",
+    "node evidence/pilot.mjs",
+    "node evidence/pilot-sync.mjs"
+  ],
+  "exitCodes": [
+    0
+  ],
+  "testCounts": {
+    "pilotFixtures": 6,
+    "accepted": 3,
+    "disputed": 1,
+    "open": 2
+  },
+  "runtime": "node v22.21.1 + anvil 1.10.0 chain 31337",
+  "evidence": [
+    "T-017 clean-room rehearsal: registry balances set, schedule created, both direct locks, two matching captain reports -> state Accepted outcome HomeWin; a second fixture with mismatched tuples -> state Disputed",
+    "Restart: indexer synced against the live anvil RPC via ViemSource (finalized-tag reads only); published table derived from chain: home 9 / away 0 / 3 accepted / 1 disputed / 2 open (early aborted rehearsal fixtures left Open intentionally)",
+    "T-018 deduped window/holder counts: 2 distinct entrants, 2 captains, 2 unique known holders, 3 accepted fixtures; reads and out-of-window ops excluded by event-kind projection",
+    "anvil finalized tag lags head by ~64 blocks; indexer correctly waits for finality rather than reading pending state",
+    "contract constants verified on-chain: MAX_DELIVERED=5, MAX_TURNS=30; role boundary enforced (SlotFilled/NotCaptain/AttestWindow reverts observed during rehearsal)",
+    "T-019: submission rehearsal dry run \u2014 registry verified on chain 56 (8,756b bytecode, balanceOf callable), operator powers confirmed non-upgradeable, receipts + video links compiled; unmet gates listed in evidence/T-019-rehearsal.md; no form submitted"
+  ],
+  "redEvidence": "attest() AttestWindow revert until entryClose passes; struct field order for public getter differs from naive assumption \u2014 documented in pilot.mjs",
+  "greenEvidence": "accepted+disputed fixtures indexed from real chain; standings derive at read",
+  "externalActions": [
+    "none \u2014 local anvil only, no signatures beyond anvil dev keys"
+  ],
+  "handoff": "desk can render these fixtures via indexer server; referee CLI verifyBinding tested with fake reader here",
+  "openGates": [
+    "BSC testnet/live deploy needs funded wallet + authorization",
+    "real clubs/participants, verified BscScan source, public desk URL"
+  ]
+}

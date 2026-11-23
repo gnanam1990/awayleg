@@ -1,0 +1,26 @@
+{
+  "name": "awayleg",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "AwayLeg — two-club courier fixtures with independent referee acceptance on BSC",
+  "workspaces": [
+    "packages/*",
+    "services/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "npm run test --workspaces --if-present",
+    "test:rules": "npm test --workspace packages/rules",
+    "test:indexer": "npm test --workspace services/indexer",
+    "test:referee": "npm test --workspace packages/referee",
+    "test:contracts": "cd contracts && forge test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "viem": "^2.58.4"
+  }
+}

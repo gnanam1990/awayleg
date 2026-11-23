@@ -1,0 +1,22 @@
+{
+  "recordKind": "EXECUTION_EVIDENCE",
+  "module": "M05",
+  "status": "RUN_LOCAL_PASS",
+  "headSha": null,
+  "commands": ["node --test test/*.test.js (apps/desk)", "vite build"],
+  "exitCodes": [0],
+  "testCounts": { "pass": 5, "fail": 0 },
+  "runtime": "node v22.21.1 + vite 7.x + react 19",
+  "evidence": [
+    "8 operational states mapped: Loading/Empty/Success/Partial/Blocked/Error/Offline(banner)/Permission-denied(copy surfaces)",
+    "scoreboard reserves board+score space before fetch; accepted shows official beside recomputed with integrity warning on mismatch",
+    "keyboard: arrows/Home/End scrub turns on board region; range slider for jump-to-turn; focus outline persistent; drawer returns focus to opener",
+    "frame-by-frame table behind <details> for screen readers; state transitions announced once via aria-live=polite",
+    "palette #142238/#F7F8F5/#153A69/#72245A; Barlow Condensed headings; tabular-nums scores; reduced-motion disables animation"
+  ],
+  "redEvidence": "—",
+  "greenEvidence": "5/5 pass; vite build clean",
+  "externalActions": [],
+  "handoff": "desk reads indexer REST; referee bundles stay independently verifiable",
+  "openGates": ["T-014 browser lifecycle walkthrough", "T-015 keyboard/200%/three-width inspection", "T-016 ambiguous broadcast recovery", "contrast token-pair audit in browser"]
+}
